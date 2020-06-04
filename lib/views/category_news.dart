@@ -41,7 +41,7 @@ class _CategoryNewsState extends State<CategoryNews> {
           children: <Widget>[
             Text(
               widget.newsCategory.toString().toUpperCase(),
-              style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w600),
             )
           ],
         ),
@@ -53,8 +53,8 @@ class _CategoryNewsState extends State<CategoryNews> {
                 child: Icon(Icons.share,)),
           )
         ],
-        backgroundColor: Colors.amberAccent,
-        elevation: 10.0,
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
       ),
       body: _loading ? Center(
         child: CircularProgressIndicator(),

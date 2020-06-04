@@ -7,17 +7,19 @@ Widget MyAppBar(){
     title: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text(
-          "         News",
-          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w600),
+        Center(
+          child: Text(
+            "News",
+            style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w600),
+          ),
         ),
       ],
     ),
     actions: <Widget>[
       IconButton(icon: Icon(Icons.search),onPressed: (){})
     ],
-    backgroundColor: Colors.amberAccent,
-    elevation: 5.0,
+    backgroundColor: Colors.transparent,
+    elevation: 0.0,
   );
 }
 class Datasearch extends SearchDelegate<ArticleView>{

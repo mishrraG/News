@@ -48,8 +48,8 @@ class _ArticleViewState extends State<ArticleView> {
             },
           ),
     ],
-        backgroundColor: Colors.amberAccent,
-        elevation: 10.0,
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,
