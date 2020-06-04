@@ -65,7 +65,7 @@ class _ArticleViewState extends State<ArticleView> {
     );
   }
   void choiceOption(String choice) {
-    if (choice == 'Open with Browser') {
+    if (choice=="Open With Browser") {
       _launchInBrowser();
     }
   }

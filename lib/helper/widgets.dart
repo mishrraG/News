@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/helper/news.dart';
+import 'package:newsapp/models/article.dart';
 import 'package:newsapp/views/article_view.dart';
 
 // ignore: non_constant_identifier_names
@@ -16,40 +18,14 @@ Widget MyAppBar(){
       ],
     ),
     actions: <Widget>[
-      IconButton(icon: Icon(Icons.search),onPressed: (){})
+      IconButton(icon: Icon(Icons.search),onPressed: (){
+      })
     ],
     backgroundColor: Colors.transparent,
     elevation: 0.0,
   );
 }
-class Datasearch extends SearchDelegate<ArticleView>{
-  @override
-  List<Widget> buildActions(BuildContext context) {
-    // TODO: implement buildActions
-    return[IconButton(icon: Icon(Icons.clear),onPressed: (){})];
-  }
-  @override
-  Widget buildLeading(BuildContext context) {
-    // TODO: implement buildLeading
-    return IconButton(
-      icon: AnimatedIcon(
-        icon: AnimatedIcons.menu_arrow,
-        progress: transitionAnimation,
-      ),
-      onPressed: (){},);
-  }
-  @override
-  // ignore: missing_return
-  Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
-  }
-  @override
-  // ignore: missing_return
-  Widget buildSuggestions(BuildContext context) {
-    // TODO: implement buildSuggestions
-  }
 
-}
 
 class NewsTile extends StatelessWidget {
   final String imgUrl, title, desc, content, posturl;

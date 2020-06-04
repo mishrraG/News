@@ -40,7 +40,26 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(),
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Center(
+              child: Text(
+                "         News",
+                style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w600),
+              ),
+            ),
+          ],
+        ),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.search),onPressed: (){
+            showSearch(context: context, delegate: Datasearch());
+          })
+        ],
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+      ),
       body: SafeArea(
         child: _loading
             ? Center(
@@ -53,7 +72,6 @@ class _HomePageState extends State<HomePage> {
                       /// Categories
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 16),
-                        margin: EdgeInsets.fromLTRB(0, 35,0 ,0 ),
                         height: 70,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
@@ -91,7 +109,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
 class CategoryCard extends StatelessWidget {
   final String imageAssetUrl, categoryName;
 
@@ -140,6 +157,43 @@ class CategoryCard extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+class Datasearch extends SearchDelegate<String>{
+  final List<String> titles = News().news.cast<String>();
+  final recom = ['Corona','Elon Musk','SpaceX'];
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    return[IconButton(icon: Icon(Icons.clear),onPressed: (){
+      query="";
+    })];
+  }
+  @override
+  Widget buildLeading(BuildContext context) {
+    return IconButton(
+      icon: AnimatedIcon(
+        icon: AnimatedIcons.menu_arrow,
+        progress: transitionAnimation,
+      ),
+      onPressed: (){
+        close(context, null);
+      });
+  }
+  @override
+  // ignore: missing_return
+  Widget buildResults(BuildContext context) {
+    // TODO: implement buildResults
+  }
+  @override
+  // ignore: missing_return
+  Widget buildSuggestions(BuildContext context) {
+    final suggList = query.isEmpty?recom:titles;
+    return ListView.builder(itemBuilder: (context,index)=>ListTile(
+      leading: Icon(Icons.assistant_photo),
+      title : Text(suggList[index]),
+    ),
+      itemCount: suggList.length,
     );
   }
 }
