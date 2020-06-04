@@ -40,8 +40,8 @@ class _CategoryNewsState extends State<CategoryNews> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "News",
-              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w600),
+              widget.newsCategory.toString().toUpperCase(),
+              style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
             )
           ],
         ),
