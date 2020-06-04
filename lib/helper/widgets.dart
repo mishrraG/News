@@ -9,7 +9,7 @@ Widget MyAppBar(){
       children: <Widget>[
         Center(
           child: Text(
-            "News",
+            "         News",
             style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w600),
           ),
         ),

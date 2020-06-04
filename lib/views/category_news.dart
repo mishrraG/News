@@ -31,7 +31,6 @@ class _CategoryNewsState extends State<CategoryNews> {
       _loading = false;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +39,7 @@ class _CategoryNewsState extends State<CategoryNews> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              widget.newsCategory.toString().toUpperCase(),
+              widget.newsCategory.toString().substring(0,1).toUpperCase()+widget.newsCategory.toString().substring(1) ,
               style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w600),
             )
           ],
